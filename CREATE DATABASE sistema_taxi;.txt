@@ -1,0 +1,39 @@
+CREATE DATABASE sistema_taxi;
+USE sistema_taxi;
+
+CREATE TABLE Cliente (
+Id VARCHAR (4),
+Nome VARCHAR (50),
+PRIMARY KEY (Id)
+);
+
+CREATE TABLE Cliente_particular(
+Id VARCHAR (4),
+Nome VARCHAR(50),
+PRIMARY KEY (Id),
+FOREIGN KEY(Id) REFERENCES Cliente(Id)
+);
+
+CREATE TABLE Cliente_empresa(
+Id VARCHAR (4),
+CNPJ VARCHAR (18),
+PRIMARY KEY (Id),
+FOREIGN KEY(Id) REFERENCES Cliente(Id)
+);
+
+CREATE TABLE Taxi(
+Placa VARCHAR(7),
+ANO_FAB INTEGER ,
+MODELO VARCHAR(30),
+MARCA VARCHAR(30),
+PRIMARY KEY (Placa)
+);
+
+CREATE TABLE Corrida(
+Clid VARCHAR(4),
+Placa VARCHAR (7),
+DataPedido DATE,
+PRIMARY KEY (Clid , Placa , DataPedido),
+FOREIGN KEY (Clid) REFERENCES Cliente(Id),
+FOREIGN KEY (Placa) REFERENCES Taxi (Placa)
+);
