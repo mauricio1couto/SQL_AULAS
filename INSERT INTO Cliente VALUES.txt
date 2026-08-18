@@ -1,0 +1,28 @@
+INSERT INTO Cliente VALUES
+('1755' , 'Doriana'),
+('93', 'DinoTech'),
+('1532' , 'Asdrúbal'),
+('1780' , 'Quincas'), ('97','proj');
+
+INSERT INTO Cliente_particular VALUES 
+('1755' , '567.387.837-44'),
+('1532' , '448.754.253-44'),
+('1780' , '576.456.123-55');
+
+INSERT INTO Cliente_empresa VALUES 
+('93', '58.443.828./0001-02'),
+('97' , '44.876.234/7789-10');
+
+INSERT INTO Taxi VALUES
+('DAE6534' ,'Ford','Fiesta',1999),
+('DKL4598' , 'Wolksvagen', 'Gol' , 2001),
+('GQS7878' , 'Ford' , 'Fiesta' , 2001), 
+('JDM8776' , 'TOYOTA' , 'Corola ' , 2006),
+('JJM3692' , 'Chevrolet' , 'Corsa' , 1999);
+
+INSERT INTO corrida VALUES 
+('1775' , 'DAE6534' , '2003-02-15'), 
+('97' , 'JDM8778' , '2003-02-28');
+
+ALTER TABLE cliente_empresa DROP CNPJ 
+ALTER TABLE cliente_empresa ADD CNPJ VARCHAR(30)
