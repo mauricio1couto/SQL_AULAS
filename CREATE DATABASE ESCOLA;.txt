@@ -27,7 +27,7 @@ Id_Disciplina INT AUTO_INCREMENT,
 Descricao VARCHAR(500),
 Id_Professor INT NOT NULL,
 PRIMARY KEY (Id_Disciplina),
-FOREIGN KEY (Id_Professor) REFERENCES Professor
+FOREIGN KEY (Id_Professor) REFERENCES Professor (Id_Professor) 
 );
 
 CREATE TABLE Laboratorio (
@@ -36,7 +36,7 @@ Id_Curso INT NOT NULL,
 Id_Disciplina INT NOT NULL,
 Id_Professor INT NOT NULL, 
 PRIMARY KEY (Numero_Laboratorio),
-FOREIGN KEY (Id_Curso) REFERENCES Curso , 
-FOREIGN KEY (Id_Disciplina) REFERENCES Disciplina ,
-FOREIGN KEY (Id_Professor) REFERENCES Professor 
+FOREIGN KEY (Id_Curso) REFERENCES Curso (Id_Curso) , 
+FOREIGN KEY (Id_Disciplina) REFERENCES Disciplina (Id_Disciplina) ,
+FOREIGN KEY (Id_Professor) REFERENCES Professor  (Id_Professor)
 );
