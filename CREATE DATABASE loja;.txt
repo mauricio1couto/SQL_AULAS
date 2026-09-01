@@ -1,0 +1,44 @@
+CREATE DATABASE loja; 
+USE loja;
+
+CREATE TABLE Cliente(
+IdCliente INT AUTO_INCREMENT,
+NomeCliente VARCHAR(50),
+PRIMARY KEY (IdCliente)
+);
+
+CREATE TABLE Pedido(
+NumeroPedido INT AUTO_INCREMENT,
+DataPedido DATE, 
+NumeroProduto VARCHAR(1000),
+IdCliente INT NOT NULL,
+PRIMARY KEY (NumeroPedido),
+FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente)
+);
+
+INSERT INTO Cliente (NomeCliente) VALUES 
+('Mauricio'),
+('Joao'),
+('Carlos'),
+('Mariana Silva'),
+('Fernanda Oliveira'),
+('Lucas Pereira'),
+('Beatriz Costa'),
+('Gabriel Santos'),
+('Camila Rodrigues'),
+('Rodrigo Alves');
+
+INSERT INTO Pedido (DataPedido, NumeroProduto, IdCliente) VALUES 
+('2026-08-10', 'PROD-1001', 1),
+('2026-08-12', 'PROD-1002', 1),
+('2026-08-15', 'PROD-2005', 2),
+('2026-08-18', 'PROD-1001', 3),
+('2026-08-20', 'PROD-3008', 4),
+('2026-08-22', 'PROD-4002', 5),
+('2026-08-25', 'PROD-1002', 5),
+('2026-08-27', 'PROD-2005', 6),
+('2026-08-28', 'PROD-5001', 7),
+('2026-08-29', 'PROD-3008', 8),
+('2026-08-30', 'PROD-1001', 9),
+('2026-08-31', 'PROD-4002', 10);
+ 

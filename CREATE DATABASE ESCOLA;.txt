@@ -1,0 +1,42 @@
+CREATE DATABASE ESCOLA;
+
+USE ESCOLA;
+
+CREATE TABLE Aluno (
+Id_Aluno INT AUTO_INCREMENT ,
+Nome_Aluno VARCHAR (50),
+PRIMARY KEY (Id_Aluno)
+);
+
+CREATE TABLE Curso (
+Id_Curso INT AUTO_INCREMENT , 
+Descricao_Curso VARCHAR (500),
+Id_Aluno INT NOT NULL,
+PRIMARY KEY (Id_Curso),
+FOREIGN KEY (Id_Aluno) REFERENCES Aluno (Id_Aluno)
+);
+
+CREATE TABLE Professor (
+Id_Professor INT AUTO_INCREMENT ,
+Nome_Professor VARCHAR (50),
+PRIMARY KEY (Id_Professor)
+);
+
+CREATE TABLE Disciplina(
+Id_Disciplina INT AUTO_INCREMENT,
+Descricao VARCHAR(500),
+Id_Professor INT NOT NULL,
+PRIMARY KEY (Id_Disciplina),
+FOREIGN KEY (Id_Professor) REFERENCES Professor
+);
+
+CREATE TABLE Laboratorio (
+Numero_Laboratorio INT AUTO_INCREMENT ,
+Id_Curso INT NOT NULL,
+Id_Disciplina INT NOT NULL,
+Id_Professor INT NOT NULL, 
+PRIMARY KEY (Numero_Laboratorio),
+FOREIGN KEY (Id_Curso) REFERENCES Curso , 
+FOREIGN KEY (Id_Disciplina) REFERENCES Disciplina ,
+FOREIGN KEY (Id_Professor) REFERENCES Professor 
+);
