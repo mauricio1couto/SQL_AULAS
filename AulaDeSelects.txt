@@ -1,0 +1,52 @@
+-- 1. Criação da tabela CITIES (Cidades)
+CREATE TABLE CITIES (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- 2. Criação da tabela USERS (Usuários)
+CREATE TABLE USERS (
+    id INT PRIMARY KEY,
+    city_id INT NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    age INT,
+    FOREIGN KEY (city_id) REFERENCES CITIES(id)
+);
+-- Inserção de Cidades
+INSERT INTO CITIES (id, name) VALUES 
+(1, 'Miami'), 
+(2, 'Orlando'), 
+(3, 'Las Vegas'), 
+(4, 'Coyote Springs');
+
+-- Inserção de Usuários
+INSERT INTO USERS (id, city_id, first_name, last_name, age) VALUES 
+(1, 1, 'Jhon', 'Doe', 22),
+(2, 1, 'Albert', 'Thomson', 15),
+(3, 2, 'Robert', 'Ford', 65),
+(4, 3, 'Samantha', 'Simpson', 9),
+(5, 2, 'Carlos', 'Bennet', 42),
+(6, 2, 'Mirtha', 'Lebrand', 81),
+(7, 3, 'Alex', 'Gomez', 31);
+
+SELECT MIN(age) FROM USERS;
+SELECT MIN(last_name) FROM USERS;
+SELECT MAX(age) FROM USERS;
+SELECT MAX (last_name) FROM USERS;
+SELECT SUM(age) FROM USERS ;
+SELECT AVG(age) FROM USERS ;
+SELECT COUNT(age) FROM USERS;
+
+SELECT city_id , MIN(age) FROM USERS GROUP BY city_id
+
+SELECT city_id, MAX(age) FROM USERS GROUP BY city_id;
+SELECT city_id , SUM(age) FROM USERS GROUP BY city_id;
+
+SELECT city_id , COUNT(age) FROM USERS GROUP BY city_id;
+SELECT city_id, SUM(age), COUNT(age), AVG(age) AS average 
+FROM USERS 
+GROUP BY city_id;
+
+SELECT city_id, AVG(age) FROM USERS GROUP BY city_id;
+SELECT city_id, COUNT(age) ,AVG(age) FROM USERS WHERE AVG(age)>=20 GROUP BY city_id
