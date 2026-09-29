@@ -50,3 +50,7 @@ GROUP BY city_id;
 
 SELECT city_id, AVG(age) FROM USERS GROUP BY city_id;
 SELECT city_id, COUNT(age) ,AVG(age) FROM USERS WHERE AVG(age)>=20 GROUP BY city_id
+
+INSERT INTO USERS (id, city_id, first_name, last_name, age) VALUES
+(8, 2, 'Frederic', 'Scott', NULL),
+(9, 4, 'Stacy', 'Roberts', NULL);
